@@ -32,3 +32,85 @@ canvas, image {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    font-family: monospace;
+    font-size: larger;
+
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+
+    background: url('http://kool.tools/world-of-bitsy.jpg');
+    background-position-x: center;
+    background-size: 200%;
+
+    overflow-x: hidden;
+}
+
+body { display: flex; }
+h2 { margin: auto; }
+
+main {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    width: 32rem;
+    margin: auto;
+
+    background: black;
+    color: white;
+}
+
+label {
+    display: flex;
+}
+
+label > * {
+    flex: 1;
+}
+
+input {
+    flex: 1;
+}
+
+input[type="checkbox"] {
+    flex: 0;
+}
+
+button { font-size: large; margin: auto; }
+
+div {
+    flex: 1;
+}
+
+.audio-row {
+    display: grid;
+    grid-template-columns: 50% 35% 15%;
+
+    justify-items: center;
+    align-items: center;
+}
+
+#rooms {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.room-row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    justify-items: center;
+    align-items: center;
+}
+
+.room-row select {
+    max-width: 50%;
+}

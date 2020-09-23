@@ -1,12 +1,44 @@
 doctype html
 html
     head
-        title low tech template
+        title bitsy muse ui
         meta(charset="utf-8")
         // styles
         style#base-style
             include styles/base-style.css
         // scripts
         script
+            include scripts/jszip.min.js
+        script
+            include scripts/FileSaver.min.js
+        script#bitsymuse(type="text/plain")
+            include scripts/bitsymuse.js
+        script
             include scripts/main.js
     body(onload="start()")
+        main
+            h2 bitsy muse ui
+            div a tool for applying David Mowatt's #[a(href="https://github.com/seleb/bitsy-hacks/blob/master//dist/bitsymuse.js?ref=pkgstats.com") bitsymuse hack] to your bitsy game
+            h2 inputs
+            #inputs
+                label
+                    div 📄 bitsy html
+                    input#bitsy(type="file" accepts="*.html" title="the playable web page exported from bitsy")
+                label
+                    div 🔊 audio files
+                    input#audio(type="file" accepts="audio/*" multiple title="all the audio files you would like to use")
+            h2 audio settings
+            .audio-row
+                b file
+                b volume
+                b loop
+            #audios
+            h2 room settings
+            .room-row
+                b room
+                b action
+            #rooms
+            #exports
+                button#export-html export html
+                button#export-zip export zip
+
