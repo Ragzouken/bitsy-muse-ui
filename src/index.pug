@@ -18,7 +18,7 @@ html
     body(onload="start()")
         main
             h2 bitsy muse ui
-            div a tool for applying David Mowatt's #[a(href="https://github.com/seleb/bitsy-hacks/blob/master//dist/bitsymuse.js?ref=pkgstats.com") bitsymuse hack] to your bitsy game
+            div a tool for applying David Mowatt's #[a(href="https://github.com/seleb/bitsy-hacks/blob/main/dist/bitsymuse.js") bitsymuse hack] to your bitsy game
             h2 inputs
             #inputs
                 label
@@ -38,6 +38,16 @@ html
                 b room
                 b action
             #rooms
+            h2 dialogue builder
+            #dialogue-builder
+                select#dialogue-action-select
+                    option(value="music") set music to
+                    option(value="soundeffect") play sound
+                select#dialogue-audio-select
+                select#dialogue-timing-select
+                    option(value="Now") immediately
+                    option(value="") after dialogue
+                pre#dialogue-script (musicNow "S")
             #exports
                 button#export-html export html
                 button#export-zip export zip

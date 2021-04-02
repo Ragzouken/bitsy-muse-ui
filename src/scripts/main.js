@@ -13,7 +13,7 @@ async function start() {
     const hackOptions = {
         audio: {},
         musicByRoom: {},
-        silenceId: "@@SILENCE@@",
+        silenceId: "S",
         resume: false,
     };
 
@@ -133,6 +133,29 @@ async function start() {
 
             roomsContainer.appendChild(row);
         });
+
+        // dialogue builder
+        const dialogueAudio = document.getElementById("dialogue-audio-select");
+
+        dialogueAudio.innerHTML = "";
+        dialogueAudio.appendChild(html("option", { value: hackOptions.silenceId }, "[silence]"));
+        audioIds.forEach((audioId) => {
+            const element = html("option", { value: audioId }, audioId);
+            dialogueAudio.appendChild(element);
+        });
+    }
+    
+    const action = document.getElementById("dialogue-action-select");
+    const audio = document.getElementById("dialogue-audio-select");
+    const timing = document.getElementById("dialogue-timing-select");
+    const script = document.getElementById("dialogue-script");
+    
+    action.addEventListener("change", refreshDialogueBuilder);
+    audio.addEventListener("change", refreshDialogueBuilder);
+    timing.addEventListener("change", refreshDialogueBuilder);
+
+    function refreshDialogueBuilder() {
+        script.innerText = `(${action.value}${timing.value} "${audio.value}")`;
     }
 }
 

@@ -114,3 +114,11 @@ div {
 .room-row select {
     max-width: 50%;
 }
+
+select {
+    padding: .25em .5em;
+    border-radius: .25em;
+    background: #222;
+    color: white;
+    border: none;
+}
